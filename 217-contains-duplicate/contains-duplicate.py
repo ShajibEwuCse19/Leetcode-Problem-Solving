@@ -1,14 +1,13 @@
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
-        freq = {}
+        seen = set()
         for x in nums:
-            freq[x] = freq.get(x, 0) + 1 #if x exits, return value [freq], else return 0. always +1 to increase freq. 
-
-            if freq[x] > 1: 
+            if x in seen:
                 return True
+            seen.add(x)
 
         return False
 
     #TC: O(len(nums)) = O(n)
-    #SC: user freq, so, O(size of freq) = O(n)
+    #SC: O(all unique) = O(len(seen)) = O(n)
         
