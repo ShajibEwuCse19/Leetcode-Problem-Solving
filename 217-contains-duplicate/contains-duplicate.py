@@ -2,10 +2,7 @@ class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
         freq = {}
         for x in nums:
-            if x in freq:
-                freq[x] = freq[x] + 1 #increment
-            else:
-                freq[x] = 1 #initialization
+            freq[x] = freq.get(x, 0) + 1 #if x exits, return value [freq], else return 0. always +1 to increase freq. 
 
             if freq[x] > 1: 
                 return True
