@@ -1,11 +1,11 @@
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
-        seen = set()
-        for x in nums:
-            seen.add(x)
+        nums.sort()
+        for i in range(1, len(nums)):
+            if (nums[i] == nums[i-1]):
+                return True
+        return False
 
-        return len(seen) != len(nums)
-
-    #TC: O(len(nums)) = O(n)
-    #SC: O(all unique) = O(len(seen)) = O(n)
+    #TC: O(len(nums)*sort) = O(n*log(n)) = O(nlogn)
+    #SC: O(1) - no space usase
         
