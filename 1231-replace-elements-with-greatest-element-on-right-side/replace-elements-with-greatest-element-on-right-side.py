@@ -9,4 +9,7 @@ class Solution:
             curr = max(curr, temp)
 
         return arr
+
+#TC: O(len(arr)) = O(n)
+#SC: no extra space = O(1)
         
