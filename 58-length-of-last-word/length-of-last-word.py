@@ -1,17 +1,8 @@
 class Solution:
     def lengthOfLastWord(self, s: str) -> int:
-        right = len(s) - 1
-        flag = False
-        cnt = 0
+        s = s.strip().split()
 
-        while right >= 0:
-            if s[right] != " " and flag == False: flag = True
-            if s[right] == " " and flag == True: return cnt
-            if flag == True: cnt += 1
-
-            right -= 1
-
-        return cnt
+        return 0 if not s else len(s[-1])
 
 #TC: O(len s) = O(n)
 #SC: no space = O(1)
