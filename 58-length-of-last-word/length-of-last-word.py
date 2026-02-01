@@ -12,4 +12,7 @@ class Solution:
             right -= 1
 
         return cnt
+
+#TC: O(len s) = O(n)
+#SC: no space = O(1)
         
