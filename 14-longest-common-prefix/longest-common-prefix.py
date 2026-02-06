@@ -1,16 +1,16 @@
 class Solution:
-    def longestCommonPrefix(self, strs: List[str]) -> str:
-        if len(strs) == 1: return strs[0]
+    def longestCommonPrefix(self, stars: List[str]) -> str:
+        stars = sorted(stars)
         ans = ""
-        for i in range(len(strs[0])):
-            for j in range(1, len(strs)):
-                if i >= len(strs[j]): return ans
-                if strs[0][i] != strs[j][i]: return ans
-            ans += strs[0][i]
+        head = stars[0]
+        tail = stars[-1]
+        for i in range(min(len(head), len(tail))):
+            if head[i] != tail[i]: return ans
+            ans += head[i]
 
         return ans
 
-#TC: O(len s1 * len strs) = O(n*n)
-#SC: O(1)
+#TC: O(sort algo) = O(nlogn)
+#SC: O(head + tail) = O(2n) = O(n) - as they are similar to list len in worst case
 
         
