@@ -10,5 +10,7 @@ class Solution:
 
         return ans
 
+#TC: O(len s1 * len strs) = O(n*n)
+#SC: O(1)
 
         
