@@ -1,14 +1,17 @@
 class Solution {
 public:
     int singleNumber(vector<int>& nums) {
-        if (nums.size() <= 2) return nums[0]; // TC: O(2)
-        sort(nums.begin(), nums.end()); // TC: O(nlog(n))
-        for(int i=0; i<nums.size(); i+=2) { // TC: O(n)
-            if(nums[i] != nums[i+1]) return nums[i];
+        map<int,int>count;
+        for(auto value: nums) {
+            count[value]++;
         }
-        return nums[nums.size() - 1];
+
+        for(auto idx: count) {
+            if(idx.second == 1) return idx.first;
+        }
+        return 0;
     }
 };
 
-//TC: O(2 + nlog(n) + n) = O(nlogn)
-//SC: no extra space - O(1)
+//TC: O(n + n) = O(n)
+//SC: O(n) - map
