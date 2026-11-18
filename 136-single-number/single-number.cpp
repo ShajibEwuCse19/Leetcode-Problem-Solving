@@ -1,17 +1,16 @@
 class Solution {
 public:
     int singleNumber(vector<int>& nums) {
-        map<int,int>count;
-        for(auto value: nums) {
-            count[value]++;
-        }
-
-        for(auto idx: count) {
-            if(idx.second == 1) return idx.first;
-        }
-        return 0;
+        int ans = 0;
+        for(auto value : nums) ans = ans ^ value;
+        return ans;
     }
 };
 
-//TC: O(n + n) = O(n)
-//SC: O(n) - map
+//TC: O(n) - loop
+//SC: O(1) - no space
+// a xor a xor a = 0, a xor b xor a = a xor a xor b = 0 xor b = b
+// 1 xor 1 = 0 
+// 0 xor 0 = 0 
+// 1 xor 0 = 1 
+// 0 xor 1 = 1
