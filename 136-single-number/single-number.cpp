@@ -9,7 +9,7 @@ public:
 
 //TC: O(n) - loop
 //SC: O(1) - no space
-// a xor a xor a = 0, a xor b xor a = a xor a xor b = 0 xor b = b
+// a xor a xor a = 0 xor a = a, a xor b xor a = a xor a xor b = 0 xor b = b
 // 1 xor 1 = 0 
 // 0 xor 0 = 0 
 // 1 xor 0 = 1 
