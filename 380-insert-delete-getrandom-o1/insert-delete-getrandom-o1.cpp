@@ -1,45 +1,25 @@
 class RandomizedSet {
+    unordered_set<int> st;
 public:
-    vector<int>randSet;
-    unordered_map<int,int>idx;
-    //constructor
-    RandomizedSet() {
-        randSet.clear();
-        idx.clear();
-    }
+    RandomizedSet() {}
     
-    //insert val and return true - if not present
-    // false - if present
     bool insert(int val) {
-        //check present
-        if (idx.count(val)) return false;
-        //not present
-        randSet.push_back(val);
-        idx[val] = randSet.size() - 1;
-        return true;
+        return st.insert(val).second; // TC: O(1) avg
     }
     
-    //remove val and return true - if not present
-    // false - if present
     bool remove(int val) {
-        //not present
-        if (!idx.count(val)) return false;
-        //present - remove the val from idx and update the randSet using tail
-        int tail = randSet.back();
-        randSet[idx[val]] = tail; // remove val using tail
-        randSet.pop_back(); // remove tail from vector
-
-        idx[tail] = idx[val]; // update tail idx for new position.
-        idx.erase(val); // remove val from idx
-
-        return true;
+        return st.erase(val) > 0;     // TC: O(1) avg
     }
     
-    // return a random val
     int getRandom() {
-        return randSet[rand() % randSet.size()];
+        auto it = st.begin();
+        advance(it, rand() % st.size()); // TC: O(N) — linear iterator walk
+        return *it;
     }
 };
+
+// TC: insert O(1) avg, remove O(1) avg, getRandom O(N)
+// SC: O(N)
 
 /**
  * Your RandomizedSet object will be instantiated and called as such:
