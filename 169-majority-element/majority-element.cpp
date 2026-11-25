@@ -12,7 +12,7 @@ public:
 };
 
 //TC: O(N)
-//SC: O(N)
+//SC: O(1)
 
 //Boyer–Moore Majority Voting Algorithm: Return x which freq is more than (N/2)
 //candidate(cand), frequency(freq):
